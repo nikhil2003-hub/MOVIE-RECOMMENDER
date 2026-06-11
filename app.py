@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import ast
 import difflib
-import requests
 
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -66,10 +65,6 @@ html, body, [class*="css"] {
     background-color: #E50914;
     color: white;
     border: none;
-}
-
-footer {
-    visibility: hidden;
 }
 
 </style>
@@ -231,32 +226,6 @@ def recommend(movie):
 
     return recommended_movies
 
-# ---------------- AI FUNCTION ---------------- #
-
-def ask_ai(movie_name):
-
-    prompt = f"""
-    Give a short and interesting explanation about the movie {movie_name}.
-    Explain why people may enjoy this movie.
-    Keep it under 80 words.
-    """
-
-    response = requests.post(
-
-        "http://localhost:11434/api/generate",
-
-        json={
-            "model": "mistral",
-            "prompt": prompt,
-            "stream": False
-        }
-
-    )
-
-    data = response.json()
-
-    return data["response"]
-
 # ---------------- SEARCH ---------------- #
 
 movie_list = new_df['title'].values
@@ -266,21 +235,7 @@ selected_movie = st.selectbox(
     movie_list
 )
 
-# ---------------- BUTTONS ---------------- #
-
-col1, col2 = st.columns(2)
-
-with col1:
-
-    recommend_clicked = st.button("🚀 Recommend")
-
-with col2:
-
-    ai_clicked = st.button("🤖 Explain with AI")
-
-# ---------------- RECOMMENDATIONS ---------------- #
-
-if recommend_clicked:
+if st.button("🚀 Recommend"):
 
     recommendations = recommend(selected_movie)
 
@@ -300,18 +255,6 @@ if recommend_clicked:
                 <p>{movie['overview'][:120]}...</p>
             </div>
             """, unsafe_allow_html=True)
-
-# ---------------- AI ASSISTANT ---------------- #
-
-if ai_clicked:
-
-    with st.spinner("AI is thinking..."):
-
-        ai_response = ask_ai(selected_movie)
-
-        st.markdown("## 🤖 AI Movie Assistant")
-
-        st.success(ai_response)
 
 # ---------------- HOMEPAGE ---------------- #
 
