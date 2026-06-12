@@ -1,3 +1,9 @@
 venv/
 __pycache__/
 *.pyc
+.env
+movie_embeddings_openai.npy
+movie_embeddings_openai_partial.npy
+*.npy
+.pytest_cache/
+tests/__pycache__/

@@ -1,6 +1,6 @@
-# 🎬 REEL RECOMMENDER
+# 🎬 MOVIE RECOMMENDER
 
-REEL RECOMMENDER is a Movie Recommendation Web App built using Machine Learning and Streamlit.
+MOVIE RECOMMENDER is a Movie Recommendation Web App built using Machine Learning and Streamlit.
 
 The system recommends similar movies based on movie genres, cast, keywords, crew, and overview using Content-Based Filtering and Cosine Similarity.
 
@@ -79,7 +79,7 @@ Output:
 # 📁 Project Structure
 
 ```text id="4pqx8q"
-REEL-RECOMMENDER
+MOVIE-RECOMMENDER
 │
 ├── app.py
 ├── README.md
