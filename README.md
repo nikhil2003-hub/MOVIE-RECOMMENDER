@@ -4,6 +4,12 @@ MOVIE RECOMMENDER is a Movie Recommendation Web App built using Machine Learning
 
 The system recommends similar movies based on movie genres, cast, keywords, crew, and overview using Content-Based Filtering and Cosine Similarity.
 
+# 🚀 Live Demo
+
+https://movie-recommender-t5nmkgrg5mh9dqulvweydp.streamlit.app/
+
+---
+
 # ✨ Features
 
 * Smart movie recommendations
